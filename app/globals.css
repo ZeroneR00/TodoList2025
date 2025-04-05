@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 51, 51, 51;
+  --background-rgb: 241, 242, 244;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: rgb(var(--background-rgb));
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Горизонтальный скролл для списков */
+.horizontal-scroll {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 #f1f5f9;
+}
+
+.horizontal-scroll::-webkit-scrollbar {
+  height: 6px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 3px;
+}
+
+/* Минималистичная карточка */
+.minimal-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.minimal-card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Создаем текстуру деревянного стола с помощью CSS */
+.wooden-background {
+  background-color: #6B4F35;
+  background-image: 
+    linear-gradient(90deg, rgba(244, 218, 183, 0.05) 50%, transparent 50%),
+    linear-gradient(90deg, rgba(244, 218, 183, 0.08) 50%, transparent 50%),
+    linear-gradient(90deg, transparent 50%, rgba(244, 218, 183, 0.05) 50%),
+    linear-gradient(90deg, transparent 50%, rgba(244, 218, 183, 0.05) 50%);
+  background-size: 133px, 31px, 43px, 13px;
+}
+
+/* Добавляем тень для создания эффекта объема */
+.paper-shadow {
+  box-shadow: 
+    0 1px 1px rgba(0,0,0,0.12), 
+    0 2px 2px rgba(0,0,0,0.12), 
+    0 4px 4px rgba(0,0,0,0.12), 
+    0 8px 8px rgba(0,0,0,0.12),
+    0 16px 16px rgba(0,0,0,0.12);
+}
+
+/* Стили для скроллбара */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Стили для карточек Trello */
+.trello-card {
+  @apply bg-white rounded-lg shadow-sm p-2 mx-1;
+}
+
+.trello-list {
+  @apply w-[272px] flex-shrink-0 bg-trello-gray rounded-lg;
+}
+
+.trello-button {
+  @apply bg-trello-blue hover:bg-[#026aa7] text-white text-sm font-medium py-2 px-4 rounded transition-colors;
+} 

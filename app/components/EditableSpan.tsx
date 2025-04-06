@@ -4,11 +4,13 @@ import React, { useState } from 'react';
 interface EditableSpanProps {
   span: string;
   onChange: (newValue: string) => void; // Колбэк для передачи нового значения родителю
+  className?: string; // Добавляем опциональный параметр для стилей
 }
 
 const EditableSpan: React.FC<EditableSpanProps> = ({ 
   span, 
-  onChange 
+  onChange,
+  className = "" // Значение по умолчанию - пустая строка
 }) => {
   const [editing, setEditing] = useState(false);
   const [title, setTitle] = useState(span); // Инициализируем начальным значением
@@ -58,7 +60,7 @@ const EditableSpan: React.FC<EditableSpanProps> = ({
         />
       ) : (
         <span 
-          className="cursor-pointer hover:bg-gray-100 px-2 py-1 rounded" 
+          className={`cursor-pointer hover:bg-gray-100 px-2 py-1 rounded ${className}`}
           onDoubleClick={handleDoubleClick}
         >
           {span}

@@ -298,11 +298,11 @@ const TodoLists = () => {
     return (
         <div>
             {isLoading ? (
-                <div className="max-w-5xl mx-auto p-8 text-center">
+                <div className="max-w-5xl mx-auto p-8 text-center bg-green-300">
                     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600 mx-auto"></div>
                 </div>
             ) : todoLists.length === 0 ? (
-                <div className="max-w-5xl mx-auto p-8 text-center">
+                <div className="max-w-5xl mx-auto p-8 text-center bg-green-300">
                     <h1 className="text-3xl font-bold text-gray-800 mb-6">Мои списки задач</h1>
                     <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-200">
                         <p className="text-gray-600 mb-4">У вас пока нет ни одного списка задач.</p>
@@ -315,7 +315,8 @@ const TodoLists = () => {
                     </div>
                 </div>
             ) : (
-                <div className="h-screen bg-[#f1f2f4] overflow-hidden">
+                // <div className="h-screen bg-[#f1f2f4] overflow-hidden">
+                <div className="h-screen bg-green-300 overflow-hidden">
                     <div className="flex flex-col h-full">
                         <div className="px-6 py-4 bg-white shadow-sm">
                             <div className="flex justify-between items-center max-w-7xl mx-auto">

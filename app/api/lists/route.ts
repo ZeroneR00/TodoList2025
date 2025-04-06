@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { prisma } from '../../../lib/prisma';
+import { Prisma } from '@prisma/client';
 
 // GET /api/lists - Получить все списки с задачами
 export async function GET() {
@@ -37,7 +38,18 @@ export async function POST(request: Request) {
     
     return NextResponse.json(newList, { status: 201 });
   } catch (error) {
-    console.error('Error creating list:', error);
-    return NextResponse.json({ error: 'Failed to create list' }, { status: 500 });
+    console.error('Detailed error creating list:', error);
+    
+    if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      return NextResponse.json({ 
+        error: `Database error: ${error.code}`,
+        details: error.message 
+      }, { status: 500 });
+    }
+    
+    return NextResponse.json({ 
+      error: 'Failed to create list',
+      details: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 });
   }
 } 
